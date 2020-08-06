@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="stylesheet" href="/css/style.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
@@ -23,14 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
     -->
     <title>Ristorante Con Fusion</title>
-    <style >
-    .row-header{margin: 0px auto;padding: 0px;}
-    .row-content{margin:50px auto;padding: 0px;}
-    .footer{background: #d1c4e9 ;margin: 0px auto;padding: 20px 0px 20px 0px;}
-    .jumbotron{padding: 70px 30px 70px 30px ;margin: 0px auto;background: #0575cd;color: floralwhite;}
-    address{font-size: 80%;margin: 0px;color: #0f0f0f;}
 
-    </style>
 </head>
 
 <body>
@@ -61,9 +54,50 @@
                 <span class="fa fa-address-card fa-lg"> Contact</a>
             </li>
           </ul>
+          <span class="navbar-text">
+            <a role="button" data-toggle='modal' data-target='#loginModal'>
+              <span class="fa fa-sign-in"></span>Login</a>
+          </span>
         </div>
       </div>
     </nav>
+
+    <div class="modal fade" role="dialog" id="loginModal">
+      <div class="modal-dialog modal-lg" role="content">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Login</h4>
+            <button type="button" class="close" name="button" data-dismiss='modal'>&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-sm-4">
+                  <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                  <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                </div>
+                <div class="form-group col-sm-4">
+                  <label class="sr-only" for="exampleInputPassword3">Password</label>
+                  <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                </div>
+                <div class="col-sm-auto">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label"> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -74,9 +108,17 @@
                 <div class="col-12 col-sm-3 align-self-center">
                   <img src="img/logo.png" alt="" class="img-fluid">
                 </div>
-                <div class="col-12 col-sm-3 align-self-center">
-                  <button type="button" name="button" class="btn btn-warning btn-lg text-white" >
-                    <a href="#down" style="color:floralwhite"><b>Reserve Table</b></a></button>
+                <div class="col-12 col-sm align-self-center">
+                  <!-- <button type="button" role="button" name="button" class="btn btn-warning btn-block nav-link btn-lg text-white" > -->
+                    <!-- <a href="#down" role="button" class="btn btn-block nav-link btn-warning"
+                      data-toggle="tooltip" data-html="true"
+                      title="Or call us at <br> <strong>+91 1234567890 </strong>"
+                      data-placement='bottom' style="color:floralwhite">
+                      <b>Reserve Table</b>
+                     </a> -->
+                     <a role="button" class="btn btn-block nav-link btn-warning"
+                       data-toggle="tooltip" data-html="true"  title="Or Call us at  <br><strong>+852 12345678</strong>"
+                       data-placement="bottom" href="#down">Reserve Table</a>
                 </div>
               </div>
         </div>
@@ -232,6 +274,11 @@
        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+       <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
