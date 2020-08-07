@@ -40,6 +40,14 @@ input[type='radio']{
   margin: 0 5px 0 30px;
   border: 2em solid black;
 }
+.square-rad {
+    border: 1px solid black;
+    margin: 2px;
+    width: 40px;
+    height: 40px;
+    /* position: relative; */
+
+}
 
 .tab-content {
     border-left: 1px solid #ddd;
@@ -62,4 +70,11 @@ input[type='radio']{
     top: 0;
     left: 0;
     min-height: 300px;
+}
+
+#carouselButton{
+  right: 0px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
 }
