@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    del = require('del'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync')
 
@@ -36,3 +37,34 @@ var gulp = require('gulp'),
     // });
     gulp.task('default', gulp.series('browserSync', 'sass:
     watch'));
+    gulp.task('clean', function() {
+      return del(['dist']);
+    });
+
+    gulp.task('copyfonts', function() {
+      gulp.src('./node_modules/font-awesome/fonts/**/*.{ttf,woff,eof,svg}*')
+      .pipe(gulp.dest('./dist/fonts'));
+    });
+    gulp.task('imagemin', function() {
+      return gulp.src('img/*.{png,jpg,gif}')
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('dist/img'));
+    });
+    gulp.task('usemin', function() {
+      return gulp.src('./*.html')
+      .pipe(flatmap(function(stream, file){
+        return stream
+        .pipe(usemin({
+          css: [ rev() ],
+          html: [ function() { return htmlmin({ collapseWhitespace: true })} ],
+          js: [ uglify(), rev() ],
+          inlinejs: [ uglify() ],
+          inlinecss: [ cleanCss(), 'concat' ]
+        }))
+      }))
+      .pipe(gulp.dest('dist/'));
+    });
+
+    gulp.task('build',['clean'], function() {
+      gulp.start('copyfonts','imagemin','usemin');
+    });
